@@ -1,0 +1,87 @@
+/*********************************************************************
+ * overall.csv                                                       *
+ *********************************************************************
+ * Comma Separated Value format (csv), compatible with any tabler
+ *
+ * This is the overall stats
+ *
+ ***************
+ * Header      *
+ ***************
+ * players, play, win, lose, max, min
+ *
+ ***************
+ * Description *
+ ***************
+ * 
+ * players is the stats for a given number of players
+ *
+ * play = win + lose
+ *
+ * MisterX(win) = win
+ * MisterX(lose) = lose
+ *
+ * Detective(win) = lose
+ * Detective(lose) = win
+ *
+ * max = [1-24] (1-23=lose, 24=win)
+ * min <=> max
+ *
+ */
+ 
+ /********************************************************************
+ * players.csv                                                       *
+ *********************************************************************
+ * Comma Separated Value format (csv), compatible with any tabler
+ *
+ * This is the stats of a player
+ *
+ ***************
+ * Header      *
+ ***************
+ * play, win, lose, max, min, games...
+ *
+ ***************
+ * Description *
+ ***************
+ * play = win + lose
+ *
+ * MisterX(win) = win
+ * MisterX(lose) = lose
+ *
+ * Detective(win) = lose
+ * Detective(lose) = win
+ *
+ * max = [1-24] (1-23=lose, 24=win)
+ * min <=> max
+ *
+ * games are the file name (.csv format) that contain the history of all games played by this player
+ *
+ */
+ 
+ 
+/********************************************************************
+ * 0000.csv                                                         *
+ ********************************************************************
+ * Comma Separated Value format (csv), compatible with any tabler
+ *
+ * This is the history of a game
+ *
+ ***************
+ * Header      *
+ ***************
+ * turn, (way, node)...
+ *       |____ ____|
+ *            V
+ *          moves
+ *
+ ***************
+ * Description *
+ ***************
+ * turn is the number of the turn (between 1 and 25 both included)
+ *
+ * moves are the moves operated by all players during this turn, this field is split into two sub-field :
+ *   - way : the ticket used : START, TAXI, BUS, UNDERGROUND, BLACK, X2
+ *   - node : the number which indicate the target node
+ *
+ */

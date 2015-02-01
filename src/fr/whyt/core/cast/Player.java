@@ -16,12 +16,11 @@ public class Player {
 	private HashMap<Date, Game> history;
 	
 	/**
-	 * New player
+	 * New player with 0 stats
 	 * @param name player name
 	 */
 	public Player(String name) {
-		this.name = Objects.requireNonNull(name);
-		stat = new Stat(0, 0, 0, 0, 0);
+		this(Objects.requireNonNull(name), 0, 0, 0, 0, 0);
 	}
 	
 	/**

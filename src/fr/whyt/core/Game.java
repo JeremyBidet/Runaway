@@ -4,34 +4,46 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import fr.whyt.core.cast.MisterX;
 import fr.whyt.core.cast.Player;
 import fr.whyt.core.city.City;
 import fr.whyt.core.city.Move;
 import fr.whyt.main.Integers;
+import fr.whyt.main.Main;
 
+/**
+ * Define a game with following params.<br>
+ * Use {@linkplain Game.init} method to create a game with an unordered list of player
+ * @param players the ordered list of player in a game
+ * @param turns the list of moves for each turn
+ */
 public class Game {
 
 	private final ArrayList<Player> players;
 	private final HashMap<Integer, Move[]> turns;
 	
+	/**
+	 * Set the game players and starting node
+	 * @param players the ordered list of player in a game
+	 * @param turns the list of moves for each turn
+	 */
 	private Game(ArrayList<Player> players, HashMap<Integer, Move[]> turns) {
 		this.players = players;
 		this.turns = turns;
 	}
 	
 	/**
-	 * Init the game with these players. Set the Mister X player, the order and a random starting node.
+	 * Init the game with players. Set the Mister X player, the order and a random starting node.
 	 * @param players
-	 * @return
+	 * @return the new {@link Game}
 	 */
 	public static Game init(Player... players) {
+		Main.nb_players = players.length;
 		ArrayList<Player> _players = new ArrayList<Player>(players.length);
 		HashMap<Integer, Move[]> _turns = new HashMap<Integer, Move[]>(25);
 		
 		int mister_x = setMisterX(players);
-		
 		setOrder(_players, mister_x, players);
-		
 		setStartingNode(_players, _turns);
 		
 		return new Game(_players, _turns);
@@ -82,13 +94,25 @@ public class Game {
 				mister_x = i;
 			}
 		}
+		players[mister_x].setRole(new MisterX());
 		return mister_x;
 	}
 	
+	/**
+	 * Return the player at position <b>i</b>.<br>
+	 * Position is defined by order of play. Mister X is the first.
+	 * @param i the index of the player (in play order)
+	 * @return the player
+	 */
 	public Player getPlayer(int i) {
 		return players.get(i);
 	}
 	
+	/**
+	 * Return the list of move during the turn <b>turn</b>
+	 * @param turn index of turn. Must be between 1 and 25.
+	 * @return list of moves
+	 */
 	public Move[] getTurn(int turn) {
 		return turns.get(turn);
 	}

@@ -25,6 +25,7 @@ public class Main {
 		game.getPlayers().forEach(System.out::println);
 		
 		sc.close();
+		
 	}
 
 }

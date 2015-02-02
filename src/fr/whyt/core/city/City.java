@@ -1,7 +1,17 @@
 package fr.whyt.core.city;
 
-public class City {
+import java.util.ArrayList;
 
-	public static final int MAX_NODE = 200;
+public class City {
+	
+	private final ArrayList<Node> nodes;
+	
+	public City(ArrayList<Node> nodes) {
+		this.nodes = nodes;
+	}
+	
+	public Node getNode(int i)  {
+		return nodes.get(i);
+	}
 	
 }

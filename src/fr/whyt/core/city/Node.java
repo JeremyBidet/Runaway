@@ -10,9 +10,9 @@ public class Node {
 	private final int node;
 	private final ArrayList<Move> neighbors;
 
-	public Node(int node) {
+	public Node(int node, Move... moves) {
 		this.node = node;
-		this.neighbors = new ArrayList<Move>();
+		this.neighbors = (ArrayList<Move>) Arrays.asList(moves);
 	}
 
 	public int getNode() {
@@ -20,15 +20,19 @@ public class Node {
 	}
 
 	public ArrayList<Node> taxi() {
-		return (ArrayList<Node>) Arrays.asList((Node[]) neighbors.stream().filter(m -> m.getWay()== Ticket.TAXI).toArray());
+		return (ArrayList<Node>) Arrays.asList((Node[]) neighbors.stream().filter(m -> m.getWay() == Ticket.TAXI).toArray());
 	}
 
 	public ArrayList<Node> bus() {
-		return (ArrayList<Node>) Arrays.asList((Node[]) neighbors.stream().filter(m -> m.getWay()== Ticket.BUS).toArray());
+		return (ArrayList<Node>) Arrays.asList((Node[]) neighbors.stream().filter(m -> m.getWay() == Ticket.BUS).toArray());
 	}
 
 	public ArrayList<Node> underground() {
-		return (ArrayList<Node>) Arrays.asList((Node[]) neighbors.stream().filter(m -> m.getWay()== Ticket.UNDERGROUND).toArray());
+		return (ArrayList<Node>) Arrays.asList((Node[]) neighbors.stream().filter(m -> m.getWay() == Ticket.UNDERGROUND).toArray());
+	}
+	
+	public ArrayList<Node> boat() {
+		return (ArrayList<Node>) Arrays.asList((Node[]) neighbors.stream().filter(m -> m.getWay() == Ticket.BOAT).toArray());
 	}
 
 }

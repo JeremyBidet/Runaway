@@ -20,7 +20,7 @@ public class Player {
 	 * @param name player name
 	 */
 	public Player(String name) {
-		this(Objects.requireNonNull(name), 0, 0, 0, 0, 0);
+		this(Objects.requireNonNull(name), 0, 0, 0, 1, 1);
 	}
 	
 	/**
@@ -56,6 +56,12 @@ public class Player {
 	
 	public Game getHistory(Date date) {
 		return history.get(date);
+	}
+	
+	
+	@Override
+	public String toString() {
+		return role.toString() + ' ' + name;
 	}
 	
 }

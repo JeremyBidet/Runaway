@@ -17,10 +17,14 @@ public class Main {
 		Player[] players = new Player[Main.nb_players];
 		for(int i=0; i<Main.nb_players; i++) {
 			System.out.println("Name : ");
-			players[i] = new Player(sc.nextLine());
+			String name = sc.nextLine();
+			players[i] = new Player(name);
 		}
 		
-		Game game = Game.init(players);
+		Game game = Game.init("London", players);
+		game.getPlayers().forEach(System.out::println);
+		
+		sc.close();
 	}
 
 }

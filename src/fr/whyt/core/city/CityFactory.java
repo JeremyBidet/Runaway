@@ -1,5 +1,8 @@
 package fr.whyt.core.city;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -9,12 +12,13 @@ public class CityFactory {
 	public static final int MAX_NODE = 200;
 	
 	public static void create() {
-		add("London");
-		/*
-		add("Paris");
-		add("Tokyo");
-		add("New York");
-		*/
+		Path dir = Paths.get("cities");
+		Arrays.stream(dir.toFile().listFiles()).forEach((f) -> {
+			String name = f.getName();
+			if( name.matches(".+\\.city") ) {
+				add("" + name.toUpperCase().charAt(0) + name.substring(1, name.length()-5));
+			}
+		});
 	}
 	
 	private static void add(String name) {

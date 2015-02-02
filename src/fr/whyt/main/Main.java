@@ -5,6 +5,7 @@ import java.util.Scanner;
 import fr.whyt.core.Game;
 import fr.whyt.core.cast.Player;
 
+
 public class Main {
 
 	public static int nb_players = 0;

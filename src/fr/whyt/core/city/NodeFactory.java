@@ -24,7 +24,7 @@ public class NodeFactory {
 		return nodes;
 	}
 
-	public static City load(String name) {
+	protected static City load(String name) {
 		NodePattern np = new NodePattern();
 		
 		String tick_regex =
